@@ -1,0 +1,309 @@
+/* =============================================================
+   FAQ Interactivo Block — Frontend Styles
+   Paleta heredada del child theme Astra:
+   --fib-acento : #7c3aed  (violeta corporativo)
+   --fib-fondo  : #1e293b  (slate oscuro)
+   --fib-texto  : #f8fafc  (blanco suave)
+   ============================================================= */
+
+/* ---- Variables con fallbacks seguros ---- */
+.fib-wrapper {
+    --fib-acento  : #7c3aed;
+    --fib-fondo   : #1e293b;
+    --fib-texto   : #f8fafc;
+    --fib-radius  : 12px;
+    --fib-trans   : 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    --fib-shadow  : 0 10px 30px rgba(0, 0, 0, 0.35);
+    --fib-border  : rgba(124, 58, 237, 0.25);
+    --fib-border-hover : rgba(124, 58, 237, 0.9);
+
+    font-family   : -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    max-width     : 860px;
+    margin        : 48px auto;
+    padding       : 0 16px;
+    color         : var(--fib-texto);
+}
+
+/* ---- Encabezado ---- */
+.fib-header {
+    text-align    : center;
+    margin-bottom : 40px;
+}
+
+.fib-titulo {
+    font-size     : clamp(1.6rem, 3vw, 2.4rem);
+    font-weight   : 700;
+    color         : var(--fib-texto);
+    margin        : 0 0 8px;
+    letter-spacing: -0.02em;
+    line-height   : 1.2;
+}
+
+.fib-titulo::after {
+    content       : '';
+    display       : block;
+    width         : 48px;
+    height        : 3px;
+    background    : var(--fib-acento);
+    border-radius : 2px;
+    margin        : 12px auto 0;
+}
+
+.fib-subtitulo {
+    font-size     : 1rem;
+    opacity       : 0.65;
+    margin        : 0 0 28px;
+    line-height   : 1.6;
+}
+
+/* ---- Buscador ---- */
+.fib-search-wrap {
+    position      : relative;
+    display       : flex;
+    align-items   : center;
+    max-width     : 480px;
+    margin        : 0 auto;
+}
+
+.fib-search-icon {
+    position      : absolute;
+    left          : 14px;
+    color         : var(--fib-acento);
+    display       : flex;
+    pointer-events: none;
+    opacity       : 0.8;
+}
+
+.fib-search {
+    width         : 100%;
+    padding       : 12px 44px 12px 44px;
+    background    : var(--fib-fondo);
+    border        : 1px solid var(--fib-border);
+    border-radius : var(--fib-radius);
+    color         : var(--fib-texto);
+    font-size     : 0.95rem;
+    outline       : none;
+    transition    : border-color var(--fib-trans), box-shadow var(--fib-trans);
+}
+
+.fib-search::placeholder { opacity: 0.45; }
+
+.fib-search:focus {
+    border-color  : var(--fib-acento);
+    box-shadow    : 0 0 0 3px rgba(124, 58, 237, 0.2);
+}
+
+.fib-search-clear {
+    position      : absolute;
+    right         : 12px;
+    background    : transparent;
+    border        : none;
+    color         : var(--fib-texto);
+    cursor        : pointer;
+    opacity       : 0.5;
+    font-size     : 1rem;
+    padding       : 4px;
+    line-height   : 1;
+    transition    : opacity 0.2s;
+}
+
+.fib-search-clear:hover { opacity: 1; }
+
+/* ---- Lista del acordeón ---- */
+.fib-accordion {
+    display       : flex;
+    flex-direction: column;
+    gap           : 12px;
+}
+
+/* ---- Ítem individual ---- */
+.fib-item {
+    background    : var(--fib-fondo);
+    border        : 1px solid var(--fib-border);
+    border-radius : var(--fib-radius);
+    box-shadow    : var(--fib-shadow);
+    overflow      : hidden;
+    transition    : border-color var(--fib-trans), box-shadow var(--fib-trans);
+}
+
+.fib-item:hover {
+    border-color  : var(--fib-border-hover);
+    box-shadow    : 0 14px 40px rgba(0, 0, 0, 0.45);
+}
+
+.fib-item.fib-open {
+    border-color  : var(--fib-acento);
+    box-shadow    : 0 0 0 1px var(--fib-acento), var(--fib-shadow);
+}
+
+/* Ítem resaltado en búsqueda */
+.fib-item.fib-highlight .fib-trigger {
+    background    : rgba(124, 58, 237, 0.08);
+}
+
+/* Ítem oculto por búsqueda */
+.fib-item.fib-hidden {
+    display       : none;
+}
+
+/* ---- Botón trigger ---- */
+.fib-trigger {
+    display       : flex;
+    align-items   : center;
+    justify-content: space-between;
+    gap           : 16px;
+    width         : 100%;
+    padding       : 20px 24px;
+    background    : transparent;
+    border        : none;
+    outline       : none;
+    color         : var(--fib-texto);
+    cursor        : pointer;
+    text-align    : left;
+    font-size     : 1rem;
+    font-weight   : 600;
+    line-height   : 1.4;
+    transition    : background-color var(--fib-trans), color var(--fib-trans);
+}
+
+.fib-trigger:hover {
+    background    : rgba(255, 255, 255, 0.04);
+    color         : var(--fib-acento);
+}
+
+.fib-trigger:focus-visible {
+    outline       : 2px solid var(--fib-acento);
+    outline-offset: -2px;
+    border-radius : var(--fib-radius);
+}
+
+.fib-trigger[aria-expanded="true"] .fib-pregunta-text {
+    color         : var(--fib-acento);
+}
+
+/* ---- Icono ---- */
+.fib-icon {
+    flex-shrink   : 0;
+    display       : flex;
+    align-items   : center;
+    justify-content: center;
+    width         : 32px;
+    height        : 32px;
+    border-radius : 50%;
+    background    : rgba(124, 58, 237, 0.12);
+    color         : var(--fib-acento);
+    transition    : background var(--fib-trans), transform var(--fib-trans);
+}
+
+.fib-trigger:hover .fib-icon {
+    background    : rgba(124, 58, 237, 0.22);
+}
+
+/* Animación chevron (modo rotate) */
+[data-animacion="rotate"] .fib-trigger[aria-expanded="true"] .fib-icon {
+    transform     : rotate(180deg);
+    background    : var(--fib-acento);
+    color         : #fff;
+}
+
+/* Animación plus/minus */
+[data-animacion="plus"] .fib-trigger[aria-expanded="true"] .fib-icon svg line:first-child {
+    opacity       : 0;
+    transform     : rotate(90deg);
+    transform-origin: center;
+    transition    : opacity var(--fib-trans), transform var(--fib-trans);
+}
+
+[data-animacion="plus"] .fib-trigger[aria-expanded="true"] .fib-icon {
+    background    : var(--fib-acento);
+    color         : #fff;
+    transform     : rotate(45deg);
+}
+
+/* ---- Panel de respuesta ---- */
+.fib-panel {
+    overflow      : hidden;
+    /* La animación de apertura se maneja con max-height via JS + transición CSS */
+    max-height    : 0;
+    transition    : max-height var(--fib-trans), padding var(--fib-trans);
+}
+
+.fib-panel:not([hidden]) {
+    /* max-height dinámico asignado por JS */
+}
+
+.fib-respuesta {
+    padding       : 0 24px 22px 24px;
+    font-size     : 0.95rem;
+    line-height   : 1.75;
+    opacity       : 0.85;
+    border-top    : 1px solid rgba(255, 255, 255, 0.06);
+    padding-top   : 16px;
+}
+
+.fib-respuesta p { margin: 0 0 0.75em; }
+.fib-respuesta p:last-child { margin-bottom: 0; }
+
+/* ---- Mensajes de estado ---- */
+.fib-empty,
+.fib-no-results {
+    text-align    : center;
+    padding       : 32px;
+    opacity       : 0.5;
+    font-size     : 0.95rem;
+}
+
+.fib-trigger:focus,
+.fib-trigger:active {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+    .fib-wrapper {
+        margin    : 32px auto;
+        padding   : 0 12px;
+    }
+
+    .fib-trigger {
+        padding   : 16px 18px;
+        font-size : 0.92rem;
+    }
+
+    .fib-respuesta {
+        padding   : 14px 18px 18px;
+        font-size : 0.9rem;
+    }
+
+    .fib-search {
+        padding   : 11px 40px 11px 40px;
+        font-size : 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .fib-titulo {
+        font-size : 1.4rem;
+    }
+
+    .fib-trigger {
+        padding   : 14px 16px;
+    }
+
+    .fib-icon {
+        width     : 28px;
+        height    : 28px;
+    }
+}
+
+/* ---- Accesibilidad: reduce motion ---- */
+@media (prefers-reduced-motion: reduce) {
+    .fib-item,
+    .fib-trigger,
+    .fib-panel,
+    .fib-icon {
+        transition: none !important;
+    }
+}

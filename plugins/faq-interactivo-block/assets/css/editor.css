@@ -1,0 +1,37 @@
+/* =============================================================
+   FAQ Interactivo Block — Editor Styles (Gutenberg)
+   Se cargan sólo dentro del panel del editor de bloques.
+   ============================================================= */
+
+.wp-block[data-type="fib/faq-interactivo"] .fib-wrapper {
+    max-width : 100%;
+    margin    : 0;
+    padding   : 0;
+}
+
+/* En el editor el panel siempre se muestra expandido para facilitar la edición */
+.wp-block[data-type="fib/faq-interactivo"] .fib-panel {
+    max-height: none !important;
+    display   : block !important;
+}
+
+.wp-block[data-type="fib/faq-interactivo"] .fib-trigger {
+    cursor: default;
+}
+
+/* Borde de selección al hacer clic en el bloque */
+.wp-block[data-type="fib/faq-interactivo"].is-selected .fib-wrapper {
+    outline       : 2px solid var(--fib-acento, #7c3aed);
+    border-radius : 12px;
+}
+
+/* Indicador "Modo Editor" */
+.fib-editor-notice {
+    text-align  : center;
+    font-size   : 0.78rem;
+    opacity     : 0.45;
+    padding     : 6px;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}

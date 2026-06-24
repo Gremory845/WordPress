@@ -1,0 +1,313 @@
+:root {
+    --primary-color: #7c3aed;
+    --dark-bg: #0f172a;
+    --card-bg: #1e293b;
+    --text-light: #f8fafc;
+}
+
+body {
+    background-color: var(--dark-bg) !important;
+    color: var(--text-light) !important;
+}
+
+@media (max-width: 768px) {
+    /* Ajuste del Hero */
+    .hero-custom {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 80px 20px !important;
+        min-height: 500px;
+        text-align: center !important;
+    }
+
+    .hero-custom h1 {
+        font-size: 1.8rem !important;
+        margin-bottom: 15px !important;
+        width: 100%;
+    }
+
+    .hero-custom p {
+        font-size: 1rem !important;
+        line-height: 1.5 !important;
+        margin-bottom: 25px !important;
+        max-width: 280px;
+    }
+
+    /* 2. Arreglo del Botón */
+    .hero-custom a {
+        display: inline-block !important;
+        width: auto !important;
+        padding: 12px 24px !important;
+        font-size: 1rem !important;
+    }
+
+    /* Ajuste de Grids (Servicios y Testimonios) */
+    .grid-3-col {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    /* Ajuste de Secciones */
+    section[style*="display: flex"] {
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 40px 20px !important;
+    }
+
+    /* Banner Full Width */
+    .full-width-banner {
+        height: 250px !important;
+        margin: 20px 0;
+    }
+
+    /* Imagen con marco */
+    .img-con-marco {
+        box-shadow: 8px 8px 0px var(--primary-color) !important;
+        margin-top: 20px;
+    }
+
+    /* Valores y Redes Sociales */
+    ul[style*="justify-content: space-around"],
+    .social-networks {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+}
+
+/* Ajustes para pantallas muy pequeñas (iPhone SE / Relojes) */
+@media (max-width: 480px) {
+    .hero-custom h1 {
+        font-size: 1.8rem !important;
+    }
+    
+    .card-estilizada {
+        padding: 20px;
+    }
+}
+
+/* Header con sombra y borde */
+.header-custom {
+    background-color: var(--card-bg);
+    border-bottom: 3px solid var(--primary-color);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    padding: 10px 0;
+}
+
+/* Estilos del Footer */
+.site-footer-custom {
+    background-color: var(--card-bg);
+    border-top: 3px solid var(--primary-color);
+    padding: 40px 0 20px;
+    margin-top: 50px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.footer-title {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+/* --- Estilos Base (Escritorio) --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.main-navigation ul { 
+    display: flex; 
+    list-style: none; 
+    gap: 2rem; 
+    margin: 0; 
+    padding: 0;
+}
+
+.main-navigation li { position: relative; }
+
+.main-navigation a {
+    text-decoration: none;
+    color: var(--menu-text);
+    font-weight: 500;
+    transition: var(--menu-transition);
+}
+
+.main-navigation a:hover { color: var(--menu-accent); }
+
+/* Submenús (Desktop) */
+.main-navigation ul ul { 
+    display: none; 
+    position: absolute; 
+    top: 100%; 
+    left: 0;
+    background: var(--menu-bg); 
+    padding: 1rem 0;
+    min-width: 220px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+.main-navigation li:hover > ul { 
+    display: block;
+    animation: fadeInMenu 0.2s ease-out;
+}
+
+@keyframes fadeInMenu {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Botón Hamburguesa --- */
+.menu-toggle-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 10px;
+    position: relative;
+    width: 44px;
+    height: 44px;
+}
+
+.hamburger {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--menu-text);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: var(--menu-transition);
+}
+
+.hamburger::before, .hamburger::after {
+    content: "";
+    width: 24px;
+    height: 2px;
+    background-color: #ffffff !important;
+    position: absolute;
+    left: 0;
+    transition: var(--menu-transition);
+}
+
+.hamburger::before { top: -8px; }
+.hamburger::after { top: 8px; }
+
+
+/* Estado Activo (X) */
+.menu-toggle-btn.is-active .hamburger { background-color: transparent; }
+.menu-toggle-btn.is-active .hamburger::before { transform: rotate(45deg); top: 0; }
+.menu-toggle-btn.is-active .hamburger::after { transform: rotate(-45deg); top: 0; }
+
+/* --- Media Query: Menú Móvil --- */
+@media (max-width: 992px) {
+    .menu-toggle-btn {
+    display: block;
+    background: rgba(124, 58, 237, 0.2);
+    border-radius: 8px;
+}
+    
+    .main-navigation { 
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: var(--menu-bg);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+        padding: 80px 40px;
+        transition: right 0.4s ease;
+        z-index: 1000;
+        overflow-y: auto;
+    }
+
+    .main-navigation.is-active { right: 0; }
+
+    .main-navigation ul { 
+        flex-direction: column; 
+        gap: 1.5rem;
+    }
+
+    .main-navigation ul ul { 
+        display: block;
+        position: static; 
+        box-shadow: none;
+        padding: 10px 0 0 15px;
+    }
+}
+
+/* --- Estilos para Secciones del Home y Acerca De --- */
+
+.hero-custom {
+    padding: 100px 20px;
+    text-align: center;
+    background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.grid-3-col {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.card-estilizada {
+    background: #1e293b; /* Color slate oscuro */
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.card-estilizada:hover {
+    transform: translateY(-10px);
+    border-color: #7c3aed;
+}
+
+.img-con-marco {
+    border: 10px solid #1e293b;
+    box-shadow: 15px 15px 0px #7c3aed;
+    border-radius: 8px;
+    max-width: 100%;
+}
+
+.full-width-banner {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    margin: 40px 0;
+    border-radius: 12px;
+}
+
+.legal-links { list-style: none; padding: 0; }
+.legal-links a { color: var(--text-light); text-decoration: none; opacity: 0.8; }
+.legal-links a:hover { opacity: 1; color: var(--primary-color); }
+
+.social-networks { display: flex; gap: 15px; font-size: 1.5rem; }
+.social-icon { color: var(--text-light); transition: transform 0.3s ease; }
+.social-icon:hover { color: var(--primary-color); transform: translateY(-5px); }
+
+/* Estilo para imágenes (Punto 3 de penalizaciones) */
+.img-styled, .wp-block-image img {
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid rgba(124, 58, 237, 0.3);
+}

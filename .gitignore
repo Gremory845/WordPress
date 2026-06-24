@@ -1,0 +1,18 @@
+# 1. Ignorar absolutamente todo dentro de wp-content
+/*
+
+# 2. Permitir que Git entre a las carpetas de themes y plugins
+!themes/
+!plugins/
+
+# 3. Ignorar todo el contenido dentro de themes y plugins por defecto
+themes/*
+plugins/*
+
+# 4. EXCEPCIONES: Las carpetas exactas que SÍ quieres subir
+!themes/astra-child/
+!plugins/faq-interactivo-block/
+!plugins/segundo/
+!plugins/tercero/
+
+!.gitignore
