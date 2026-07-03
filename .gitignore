@@ -12,7 +12,7 @@ plugins/*
 # 4. EXCEPCIONES: Las carpetas exactas que SÍ quieres subir
 !themes/astra-child/
 !plugins/faq-interactivo-block/
-!plugins/segundo/
-!plugins/tercero/
+!plugins/tech-quote-calculator/
+!plugins/tech-stack-recommender/
 
 !.gitignore

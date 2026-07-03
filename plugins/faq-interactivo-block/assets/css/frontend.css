@@ -61,17 +61,20 @@
     position      : relative;
     display       : flex;
     align-items   : center;
-    max-width     : 480px;
+    max-width     : 500px;
     margin        : 0 auto;
+    
 }
 
 .fib-search-icon {
     position      : absolute;
     left          : 14px;
-    color         : var(--fib-acento);
+    margin-right: 14px;
+    color         : var(--fib-texto);
     display       : flex;
     pointer-events: none;
     opacity       : 0.8;
+
 }
 
 .fib-search {
@@ -83,10 +86,14 @@
     color         : var(--fib-texto);
     font-size     : 0.95rem;
     outline       : none;
+    text-align: left;
+    margin-left: 50px;
+    
     transition    : border-color var(--fib-trans), box-shadow var(--fib-trans);
 }
 
-.fib-search::placeholder { opacity: 0.45; }
+.fib-search::placeholder { opacity: 0.45;
+margin-left: 50px; }
 
 .fib-search:focus {
     border-color  : var(--fib-acento);
